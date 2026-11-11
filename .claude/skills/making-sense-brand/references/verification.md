@@ -1,55 +1,57 @@
-# Verifikasi Berita AI — Making Sense
+# Verifying AI News — Making Sense
 
-## Hierarki sumber
+Rule zero: a joke is only as good as the fact under it. Verify first, be funny second.
 
-| Tier | Contoh | Peran |
+## Source hierarchy
+
+| Tier | Examples | Role |
 |---|---|---|
-| **1 — Primer** | Blog/rilis resmi perusahaan, dokumentasi & changelog, paper (arXiv/jurnal), model card, filing & rilis regulator, repo resmi, transkrip/rekaman acara resmi | Dasar klaim |
-| **2 — Media kredibel** | Media teknologi/bisnis besar dengan reporter bernama dan rekam jejak koreksi | Konfirmasi, konteks |
-| **3 — Sekunder** | Newsletter, analis, pakar independen | Opini/analisis, bukan fakta utama |
-| **4 — Tidak cukup** | Akun anonim, screenshot tanpa sumber, "katanya", agregator, konten AI-generated, thread viral tanpa tautan | Hanya petunjuk untuk dicari, tidak boleh jadi dasar |
+| **1 — Primary** | Official company blog/release, docs and changelogs, papers (arXiv/journals), model cards, filings and regulator releases, official repos, official event transcripts | Basis of the claim |
+| **2 — Credible media** | Major tech/business outlets with named reporters and a corrections record | Confirmation, context |
+| **3 — Secondary** | Newsletters, analysts, independent experts | Analysis and opinion, not core facts |
+| **4 — Not enough** | Anonymous accounts, source-less screenshots, "they say", aggregators, AI-generated content, viral threads with no links | A lead to investigate, never a basis |
 
-## Alur verifikasi
+## Verification flow
 
-1. **Tangkap klaim** secara tepat: siapa, melakukan apa, kapan, angka berapa.
-2. **Telusuri ke primer.** Cari pengumuman asli. Jika berita hanya mengutip media lain, ikuti rantainya sampai ujung.
-3. **Cek kronologi.** Tanggal terbit asli? Bukan berita lama yang beredar ulang?
-4. **Cek angka.** Benchmark: siapa yang mengukur, metodenya, dibandingkan dengan apa? Klaim "x% lebih baik" harus punya baseline.
-5. **Cek kutipan.** Ada di sumber asli, konteks utuh, terjemahan tidak mengubah makna.
-6. **Cari bantahan.** Apakah perusahaan/pihak terkait sudah membantah atau meluruskan?
-7. **Tentukan label** (Terkonfirmasi / Dilaporkan / Rumor) dan tulis apa yang **belum diketahui**.
-8. **Catat sumber** (judul, penerbit, URL, tanggal terbit, tanggal akses).
+1. **Pin down the claim**: who did what, when, and which numbers.
+2. **Trace to the primary source.** If an article cites another article, follow the chain to the end.
+3. **Check the timeline.** Is this the original publish date, or an old story making a comeback?
+4. **Check the numbers.** Benchmarks: who measured, how, versus what baseline? "X% better" needs a baseline.
+5. **Check quotes.** Exists in the original, full context intact, translation doesn't change meaning.
+6. **Look for denials.** Has the company or party responded or corrected?
+7. **Assign a label** (Confirmed / Reported / Rumor) and write down what is **still unknown**.
+8. **Log sources** (title, publisher, URL, publish date, access date).
 
-## Red flag hoax AI
+## AI hoax red flags
 
-- Tanpa tautan ke sumber primer; hanya screenshot.
-- Klaim dramatis: "AI sadar diri", "AI menolak dimatikan", "AI ciptakan bahasa sendiri", "AGI sudah tercapai" tanpa paper/pernyataan resmi.
-- Kutipan tokoh (CEO, peneliti) yang tidak bisa ditemukan di wawancara/akun resmi.
-- Angka sangat bulat atau terlalu bagus, tanpa metodologi.
-- Domain mirip situs resmi, atau tulisan yang jelas dihasilkan otomatis.
-- Gambar/video/suara yang mungkin deepfake atau hasil generate.
-- Urgensi emosional: "SEBARKAN SEBELUM DIHAPUS".
-- Rilis "bocor" yang hanya diberitakan satu akun.
+- No link to a primary source, only a screenshot.
+- Dramatic claims: "AI became self-aware", "AI refused to be shut down", "AI invented its own language", "AGI achieved" without a paper or official statement.
+- Executive or researcher quotes that can't be found in an interview or official account.
+- Suspiciously round or too-good numbers with no methodology.
+- Lookalike domains, or text that reads auto-generated.
+- Images, video, or audio that could be a deepfake or generated.
+- Emotional urgency: "SHARE BEFORE THEY DELETE THIS".
+- A "leak" reported by exactly one account.
 
-## Aturan khusus
+## Special cases
 
-- **Rilis produk/model**: sumber primer cukup, tapi angka performa dilabeli "klaim perusahaan" sampai ada evaluasi independen.
-- **Benchmark**: sebut siapa yang menjalankan dan versi/tanggalnya.
-- **Regulasi/hukum**: rujuk teks regulasi atau rilis resmi, bukan ringkasan media saja.
-- **Pendanaan/valuasi/akuisisi**: tanpa konfirmasi resmi atau ≥2 media kredibel → label "Dilaporkan".
-- **Keselamatan/risiko AI**: bedakan temuan riset, pernyataan opini, dan skenario hipotetis.
-- **Prediksi**: selalu dilabeli prediksi, dengan nama pemberi prediksi.
+- **Product/model launches**: primary source suffices, but performance numbers are labeled "company claims" until independently evaluated.
+- **Benchmarks**: name who ran it, plus version and date.
+- **Regulation/legal**: cite the regulation text or official release, not just media summaries.
+- **Funding/valuation/acquisitions**: without official confirmation or 2+ credible outlets, label "Reported".
+- **AI safety/risk**: separate research findings, opinions, and hypothetical scenarios.
+- **Predictions**: always labeled as predictions, with the predictor named.
 
-## Format pencatatan sumber (untuk caption/deskripsi)
+## Source log format (for captions/descriptions)
 
 ```
-Sumber:
-1. [Penerbit] — "[Judul]" (terbit DD MMM YYYY) — URL
+Sources:
+1. [Publisher] — "[Title]" (published DD MMM YYYY) — URL
 2. ...
-Status: ✅ Terkonfirmasi | 🟡 Dilaporkan
-Terakhir dicek: DD MMM YYYY
+Status: ✅ Confirmed | 🟡 Reported
+Last checked: DD MMM YYYY
 ```
 
-## Koreksi
+## Corrections
 
-Jika ditemukan kesalahan setelah publikasi: (1) perbaiki konten, (2) tambahkan catatan "Koreksi: ..." dengan tanggal, (3) jangan hapus jejak kesalahan, (4) sebutkan perubahan secara singkat dan jelas.
+If an error is found after publishing: (1) fix the content, (2) add a dated "Correction: ..." note, (3) don't erase the trail, (4) state what changed, briefly and clearly. A correction with good humor is fine ("We got a number wrong. Fixed. Our calculator has been spoken to."). A correction that dodges the error is not.
